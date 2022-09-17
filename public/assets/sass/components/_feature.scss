@@ -1,0 +1,36 @@
+.feature {
+    &__item {
+
+        &-inner {
+            @extend %text-center;
+            box-shadow: $shadow-sm;
+            padding: 25px 20px;
+
+            @include breakpoint(xl) {
+                padding: 30px 20px;
+            }
+
+            @include breakpoint(xxl) {
+                padding: 40px 30px;
+            }
+
+        }
+
+
+        &-thumb {
+            @extend %mb-40;
+        }
+
+        &-content {
+            p {
+                @extend %mb-0;
+            }
+        }
+    }
+
+    .feature-modify {
+        height: 100%;
+        display: grid;
+        place-items: center;
+    }
+}

@@ -1,0 +1,21 @@
+.choose {
+    &__content {
+        h2 {
+            @extend %mb-30;
+        }
+    }
+
+    &__list {
+        @extend %mb-40;
+
+        &-item {
+            &:not(:last-child) {
+                @extend %mb-30;
+            }
+
+            h6 {
+                @extend %mb-15;
+            }
+        }
+    }
+}

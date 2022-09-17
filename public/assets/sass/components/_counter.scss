@@ -1,0 +1,25 @@
+.counter {
+    @include background-cover;
+
+    &.padding-bottom2x {
+        padding-bottom: 160px;
+
+        @include breakpoint(lg) {
+            padding-bottom: 240px;
+        }
+    }
+
+    &__item {
+        @extend %text-center;
+
+        &-thumb {
+            @extend %mb-30;
+        }
+
+        &-content {
+            p {
+                @extend %mb-0;
+            }
+        }
+    }
+}

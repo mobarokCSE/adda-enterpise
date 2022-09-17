@@ -1,0 +1,174 @@
+.about {
+  @extend %hidden;
+
+  &__thumb {
+    @extend %rel;
+    padding-inline-start: 30px;
+    padding-block-end: 30px;
+
+    &-experience {
+      @extend %abs;
+      background-image: $gradient-themeX;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      left: 0;
+      top: 40px;
+      padding: 10px 15px;
+
+      @include breakpoint(lg) {
+        padding: 15px 25px;
+      }
+
+      h4 {
+        @extend %mb-0;
+        @include font-size(40px);
+        color: $white-color;
+      }
+
+      p {
+        @extend %mb-0;
+        color: $white-color;
+      }
+    }
+
+    .floating-img {
+      @extend %abs;
+      bottom: 0;
+      left: 0;
+      max-width: 40%;
+
+      @include breakpoint(xxl) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &--2 {
+    @extend %rel;
+
+    .about__thumb {
+      padding-block-end: 0;
+
+      &-experience {
+        @extend %abs;
+        background-image: $gradient-secondary;
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        left: 0;
+        bottom: 40px;
+        padding: 10px 15px;
+        top: auto;
+        animation: shakeX 15s linear infinite;
+
+        @include breakpoint(lg) {
+          padding: 15px 25px;
+        }
+
+        h4 {
+          @extend %mb-0;
+          @include font-size(40px);
+          color: $white-color;
+        }
+
+        p {
+          @extend %mb-0;
+          color: $white-color;
+        }
+      }
+    }
+
+
+    .floating-img {
+      @extend %abs;
+      top: 0;
+      left: 0;
+      max-width: 40%;
+      animation: shakeY 15s linear infinite;
+
+      @include breakpoint(xxl) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__content {
+    h2 {
+      @extend %mb-20;
+      line-height: 1.25;
+    }
+  }
+
+  &__list {
+    @extend %mt-35;
+    column-count: 2;
+
+    &-item {
+      border-top: 1px solid $border-color;
+      padding-block: 13px;
+
+      span {
+        @extend %mr-5;
+      }
+    }
+
+  }
+
+  //about item in about style 2
+  &__items {
+    margin-block-start: 50px;
+    margin-block-end: 40px;
+    border-bottom: 1px solid $border-color;
+    padding-block-end: 30px;
+
+    @include breakpoint(xxl) {
+      margin-block-start: 60px;
+    }
+  }
+
+  &__item {
+    &-inner {
+      @extend %flex;
+      gap: 20px;
+    }
+
+    &-thumb {
+      @include box(60px);
+      border-radius: 50%;
+    }
+
+    &-content {
+      width: calc(100% - 60px - 20px); //20px minus is for gapping
+
+      p {
+        @extend %mb-0;
+      }
+    }
+  }
+
+
+  //about author part css
+  &__author {
+    &-wrap {
+      @extend %flex,
+      %align-items-center;
+      gap: 40px;
+    }
+
+    &-inner {
+      @extend %flex,
+      %align-items-center;
+      gap: 15px;
+    }
+
+    &-content {
+
+      h6,
+      p {
+        @extend %mb-0;
+      }
+
+    }
+  }
+}

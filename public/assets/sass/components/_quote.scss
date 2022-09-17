@@ -1,0 +1,114 @@
+.quote {
+    @extend %hidden;
+    @include background-cover;
+
+    &--img {
+        @extend %rel;
+
+        &:after {
+            @extend %abs;
+            @include add-prefix(transform, translateX(-50%));
+            background-image: url(../images/quote/01.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position-y: bottom;
+            height: 100%;
+            width: 550px;
+            bottom: 0;
+            left: 55%;
+            max-width: 100%;
+
+            @include breakpoint(max-md) {
+                display: none;
+            }
+
+            @include breakpoint(lg) {
+                max-width: 30%;
+            }
+
+            @include breakpoint(xxl) {
+                left: 55%;
+                max-width: 100%;
+            }
+        }
+    }
+
+
+
+    &__wrapper {
+        @extend %rel;
+        z-index: 1;
+    }
+
+    &__content {
+        h2 {
+            @extend %mb-20;
+        }
+
+        p {
+            &:nth-of-type(2) {
+                margin-bottom: 50px;
+            }
+        }
+
+        @include breakpoint(xxl) {
+            max-width: 85%;
+        }
+    }
+
+    &__form {
+        background-color: $white-color;
+        padding: 40px 30px;
+
+        &-title {
+            @extend %mb-40;
+        }
+
+        .form-control,
+        .form-select {
+            @extend %mb-20;
+            padding: 12px 24px;
+            color: $text-color;
+            background-color: $grey-color;
+            border-color: transparent;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .form-select {
+            @extend %mb-40;
+        }
+
+        .default-btn {
+            line-height: inherit;
+        }
+    }
+
+    //quote item (from quote style 2) css
+    &__item {
+        &:not(:last-child) {
+            margin-block-end: 40px;
+        }
+
+        &-inner {
+            @extend %flex;
+            gap: 30px;
+        }
+
+        &-content {
+            p {
+                @extend %mb-0;
+                color: $white-color;
+            }
+
+            a {
+                @include font-size(24px);
+                color: $white-color;
+                font-family: $title-font;
+                font-weight: 700;
+            }
+        }
+    }
+}

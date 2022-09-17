@@ -1,0 +1,270 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.footer {
+    @extend %hidden;
+    background-color: $bg-dark;
+
+    &__top {
+        padding-block: 80px;
+
+        @include breakpoint(lg) {
+            padding-block: 120px;
+        }
+    }
+
+    //footer items
+    &__item {
+
+        &-content {
+            >p {
+                @extend %mb-30;
+            }
+
+            //newsletter form
+            .input-group {
+                background-color: rgba($white-color, $alpha: .10);
+
+                &-text {
+                    background-color: transparent;
+                    color: $theme-color;
+                    border: none;
+                    padding-inline-start: 1.25rem;
+                    padding-inline-end: .5rem;
+                }
+
+                &-button {
+                    background-color: $theme-color;
+                    color: $white-color;
+                    padding-inline: 1.44rem;
+                    @include font-size(24px);
+                }
+
+                .form-control {
+                    background-color: transparent;
+                    border: none;
+                    color: $white-color;
+                    font-family: $title-font;
+                    padding: 1.125rem .5rem;
+
+                    &::placeholder {
+                        color: rgba($white-color, $alpha: .50);
+                    }
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .dotted-list {
+                li {
+                    @extend %rel;
+                    padding-inline-start: 15px;
+
+                    &::before {
+                        @extend %abs;
+                        top: 50%;
+                        left: 0;
+                        content: "\ec77";
+                        font-family: "IcoFont";
+                        color: $white-color;
+                        @include font-size(5px);
+                        @include add-prefix(transform, translateY(-50%));
+                    }
+                }
+            }
+        }
+
+
+        p {
+            color: $white-color;
+        }
+
+        &-title {
+            @extend %mb-30;
+
+            h4 {
+                @include font-size(24px);
+                color: $white-color;
+            }
+        }
+    }
+
+    //footer about info list
+    &__aboutInfo {
+        &-item {
+            &:not(:last-child) {
+                @extend %mb-10;
+            }
+
+            p {
+                @extend %mb-0;
+                font-family: $title-font;
+            }
+        }
+    }
+
+    //footer links
+    &__links {
+        column-count: 2;
+
+        &-item {
+            @extend %mb-20;
+
+            a {
+                font-family: $title-font;
+                color: $white-color;
+            }
+        }
+    }
+
+    //footer blog items
+    &__blog {
+        &:not(:last-child) {
+            @extend %mb-10;
+        }
+
+        &-inner {
+            @extend %flex;
+            gap: 20px;
+        }
+
+        &-thumb {
+            @extend %hidden;
+            @include box(80px);
+
+            img {
+                @extend %w-100;
+                @include add-prefix(transition, $transition);
+            }
+        }
+
+        &-content {
+            width: calc(100% - 100px);
+
+            h6 {
+                @extend %mb-0;
+                @include font-size(16px);
+                color: $white-color;
+
+                a {
+                    @extend %text-2;
+                    text-transform: capitalize;
+                }
+            }
+
+            p {
+                color: $theme-color;
+                @extend %mb-0;
+            }
+
+
+
+        }
+
+        &:hover {
+            .footer__blog {
+                &-thumb {
+                    img {
+                        @include add-prefix(transform, scale(1.1));
+                    }
+                }
+            }
+        }
+    }
+
+    //footer follow
+    &__follow {
+        h6 {
+            color: $white-color;
+            @extend %mb-15;
+        }
+    }
+
+    //footer social buttons
+    &__social {
+        @extend %flex,
+        %align-items-center;
+        gap: 10px;
+
+        &-link {
+            display: grid;
+            place-items: center;
+            @include box(50px);
+            background-color: rgba($white-color, $alpha: .10);
+            color: $white-color;
+            border-radius: 50%;
+
+            &:hover {
+                background-color: $secondary-color;
+                color: $white-color;
+
+            }
+        }
+    }
+
+    //footer copyright
+    &__copyright {
+        border-top: 1px solid rgba($white-color, $alpha: .10);
+
+        p {
+            padding-block: 30px;
+            color: $white-color;
+        }
+    }
+
+
+
+
+
+    //----footer style 2--------
+
+    &--2 {
+        background-color: inherit;
+
+        p,
+        a {
+            color: $text-color;
+        }
+
+        h4 {
+            color: $title-color;
+        }
+
+        a {
+            &:hover {
+                color: $theme-color;
+            }
+        }
+
+        .footer {
+            &__top {
+                @include background-cover;
+            }
+
+            &__aboutInfo {
+                @extend %mb-0;
+
+                &-item {
+                    &:not(:last-child) {
+                        margin-bottom: 25px;
+                    }
+                }
+            }
+
+            &__social {
+                &-link {
+                    background-color: $title-color;
+                    color: $white-color;
+
+                    &:hover {
+                        background-color: $secondary-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}

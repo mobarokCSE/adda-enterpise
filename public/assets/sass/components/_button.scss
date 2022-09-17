@@ -1,0 +1,88 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.default-btn {
+    @extend %d-inline-block;
+    @include font-size(16px);
+    @include add-prefix(transition, $transition);
+    color: $white-color;
+    padding: 15px 40px;
+    text-transform: capitalize;
+    border-radius: 2px;
+    background-image: $gradient-theme;
+
+
+    i {
+        @extend %d-inline-block;
+        @include add-prefix(transition, $transition);
+    }
+
+    &:hover {
+        @include add-prefix(transform, translateY(-5px));
+        background-position-y: -54px;
+        color: $white-color;
+
+        i {
+
+            @include add-prefix(transform, translateX(10px));
+        }
+    }
+
+    &--secondary {
+        background-image: $gradient-secondary;
+    }
+}
+
+.text-btn {
+    @include font-size(16px);
+    color: $title-color;
+    font-weight: 700;
+    text-transform: capitalize;
+
+
+    &:hover {
+        color: $theme-color;
+    }
+
+    &--2 {
+        @extend %rel;
+
+        &:after {
+            @extend %abs;
+            @include add-prefix(transition, $transition);
+            width: 70%;
+            height: 2px;
+            background-color: currentColor;
+            bottom: -3px;
+            left: 0;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.play-btn {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: $theme-color;
+    border-radius: 50%;
+    color: $white-color;
+
+    &--ripple {}
+
+    &:hover {
+        color: $white-color;
+    }
+}
+
+
+button {
+    outline: none;
+    border: none;
+}

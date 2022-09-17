@@ -1,0 +1,52 @@
+//============================================
+// * Banner sectin start here
+//============================================
+
+.banner {
+    @extend %rel,
+    %hidden;
+    @include background-cover;
+    padding-block: 120px;
+
+    @include breakpoint(lg) {
+        padding-block: 150px;
+        background-position: 35%;
+    }
+
+    @include breakpoint(xxl) {
+        background-position: left;
+    }
+
+    &__content {
+        h1 {
+            @extend %m-0;
+            @extend %mb-10;
+            line-height: 1.125;
+        }
+
+        p {
+            @extend %mb-50;
+            // @extend %pr-30;
+            line-height: 30px;
+            max-inline-size: 55ch;
+            text-transform: capitalize;
+        }
+
+        .btn-grp {
+            @extend %flex,
+            %align-items-center;
+            gap: 30px;
+        }
+    }
+
+    &__thumb {
+        img {
+            @include breakpoint(lg) {
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+
+
+}

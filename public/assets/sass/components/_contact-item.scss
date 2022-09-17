@@ -1,0 +1,158 @@
+.contact {
+    &-top {
+        @extend %rel;
+        z-index: 1;
+    }
+
+    &-bottom {
+        .location-map {
+            @extend %w-100;
+
+            iframe {
+                @extend %w-100;
+                margin-bottom: -7px;
+                min-height: 350px;
+
+                @include breakpoint(lg) {
+                    min-height: 500px;
+                }
+
+                @include breakpoint(xxl) {
+                    min-height: 700px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.contact-item {
+    padding: 50px 30px;
+    background: $ash-color;
+    border-radius: 4px;
+
+    .contact-thumb {
+        @extend %rel;
+        width: 70px;
+        height: 70px;
+        display: grid;
+        place-items: center;
+        border-radius: 100%;
+        background-color: $theme-color;
+        margin: 0 auto 30px;
+
+        &:before,
+        &:after {
+            @extend %abs;
+            // animation-play-state: paused;
+            opacity: 1;
+            z-index: 1 !important;
+            border-color: $theme-color !important;
+
+        }
+
+        &:before {
+            @include ripple(2s, 0s);
+            border-width: 25px;
+        }
+
+        &:after {
+            @include ripple(2s, .3s);
+            border-width: 15px;
+        }
+
+        img {
+            @extend %rel;
+            z-index: 2;
+        }
+    }
+
+    .contact-content {
+        h6 {
+            @extend %mb-15;
+        }
+
+        p {
+            @extend %mb-0;
+        }
+    }
+}
+
+// contact-form
+.contact-form {
+
+    &-wrapper {
+        background-color: $ash-color;
+        padding: 40px 30px;
+
+        @include breakpoint(lg) {
+            padding: 70px 50px;
+        }
+    }
+
+    @extend %flex;
+    justify-content: space-between;
+    margin-bottom: -20px;
+
+    .form-group {
+        margin-bottom: 20px;
+        width: 100%;
+
+        @include breakpoint(sm) {
+            width: calc(50% - 10px);
+        }
+
+
+        input,
+        textarea {
+            border: 1px solid $border-color;
+            border-radius: 2px;
+            background-color: $white-color;
+            color: $title-color;
+
+            &::placeholder {
+                color: rgba($title-color, $alpha: .7);
+            }
+
+            &:focus {
+                border-color: $theme-color;
+            }
+        }
+
+        input {
+            height: 57px;
+            padding: 0 25px;
+        }
+
+        textarea {
+            padding: 25px;
+        }
+    }
+
+    @include breakpoint(max-sm) {
+        margin-bottom: -20px;
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+
+// form-message
+.form-message {
+    @extend %m-0;
+    font-size: $fs-base;
+
+    &.success {
+        color: $secondary-color;
+        @extend %mt-30;
+    }
+
+    &.error {
+        color: $theme-color;
+        @extend %mt-30;
+    }
+}

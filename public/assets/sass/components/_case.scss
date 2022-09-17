@@ -1,0 +1,268 @@
+.case {
+	@extend %rel,
+	%hidden;
+
+	&--colorShape {
+		&::after {
+			@extend %abs,
+			%w-100;
+			top: 0;
+			left: 0;
+			height: 50%;
+			background-image: url(../images/case/bg.png);
+			background-size: cover;
+			z-index: -1;
+		}
+
+
+	}
+
+	&--style1 {
+		.section-header {
+			@extend %flex,
+			%justify-between;
+			align-items: flex-end;
+
+			&__content {
+				h2 {
+					color: $white-color;
+				}
+
+				@include breakpoint(lg) {
+					max-width: 60%;
+				}
+
+
+
+			}
+
+			&__button {
+				display: none;
+
+				@include breakpoint(lg) {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					gap: 10px;
+				}
+
+				a {
+					i {
+						@include font-size(24px);
+					}
+				}
+			}
+		}
+	}
+
+
+
+	&__item {
+		&-content {
+			@extend %flex,
+			%abs,
+			%align-items-center,
+			%justify-between,
+			%w-100;
+			@include add-prefix(transition, $transition);
+			background-color: $theme-color;
+			bottom: -50%;
+			padding: 15px;
+			box-sizing: border-box;
+			opacity: 0;
+
+			@include breakpoint(xl) {
+				padding: 20px 20px;
+			}
+
+			>a {
+				@include box(50px);
+				border-radius: 50%;
+				display: grid;
+				place-items: center;
+				background-color: $white-color;
+
+				i {
+					color: $theme-color;
+					@include font-size(20px);
+				}
+			}
+
+			a {
+				color: $white-color;
+
+				&:hover {
+					color: $white-color;
+				}
+			}
+
+			p {
+				@extend %mb-0;
+				color: $white-color;
+			}
+		}
+
+		&-thumb {
+			@extend %rel;
+
+
+			img {
+				@extend %w-100;
+				object-fit: cover;
+			}
+		}
+
+		:hover {
+			.case__item-content {
+				opacity: 1;
+				bottom: 0;
+			}
+		}
+	}
+
+	&__slider {
+		@extend %hidden;
+
+		&-next,
+		&-prev {
+			display: grid;
+			place-items: center;
+			background-color: $white-color;
+			color: $title-color;
+			@include box(50px);
+			border-radius: 50%;
+
+			&:hover {
+				background-color: $theme-color;
+				color: $white-color;
+			}
+		}
+	}
+
+
+	//case style 2 
+
+	&__item2 {
+		&-thumb {
+			@extend %rel,
+			%hidden;
+
+			img {
+				@extend %w-100;
+				object-fit: cover;
+			}
+		}
+
+		&-content {
+			@extend %abs,
+			%flex,
+			%justify-between,
+			%align-items-center,
+			%w-100;
+			@include add-prefix(transition, $transition);
+			background: $theme-color;
+			bottom: -10%;
+			left: 0;
+			padding: 20px 30px;
+			opacity: 0;
+
+			@include breakpoint(xxl) {
+				padding: 20px 30px;
+			}
+
+			h5,
+			p {
+				color: $white-color;
+			}
+
+			p {
+				@extend %mb-0;
+			}
+
+			.link-btn {
+				@include box(50px);
+				display: grid;
+				place-items: center;
+				background-color: $white-color;
+				border-radius: 50%;
+
+				i {
+					color: $theme-color;
+				}
+			}
+		}
+
+		&-title {
+			width: calc(100% - 70px);
+		}
+
+		&:hover {
+			.case__item2 {
+				&-content {
+					bottom: 0;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__filter {
+		@extend %flex;
+		gap: 10px;
+		justify-content: center;
+		margin-bottom: 30px;
+
+		li {
+			border-radius: 99px;
+			padding: 10px 30px;
+			color: $black-color;
+			text-transform: capitalize;
+			cursor: pointer;
+			@extend %rel;
+			background: $grey-color;
+
+			&.is-checked {
+				background: $theme-color;
+
+				.case__filter-item {
+					color: $white-color;
+				}
+			}
+		}
+
+		@include breakpoint(md) {
+			margin-bottom: 35px;
+		}
+	}
+
+
+
+	//===Case Single css
+	&__single {
+		@extend %p-20;
+		background-color: $ash-color;
+
+		@include breakpoint(sm) {
+			padding: 25px;
+		}
+
+		&-subthumb {
+			img {
+				@extend %w-100;
+				object-fit: cover;
+			}
+		}
+
+		ul {
+			padding-inline-start: 15px;
+
+			li {
+				list-style: disc;
+
+				&:not(:last-child) {
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}
